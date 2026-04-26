@@ -495,3 +495,23 @@ header {
 .skill-icon {
     margin-bottom: 20px;
 }
+.blob-shape {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #00d4ff, #0081ff);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* Creates the organic shape */
+    animation: blobMorph 8s linear infinite alternate;
+}
+
+@keyframes blobMorph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@media screen and (max-width: 768px) {
+    .blob-shape {
+        width: 250px;
+        height: 250px;
+        margin: 20px auto;
+    }
+}
