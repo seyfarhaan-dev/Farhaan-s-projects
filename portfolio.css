@@ -1,4 +1,70 @@
-ault on mobile */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* We can change this font later */
+}
+
+body {
+    background-color: #1a1a1a; /* A sleek dark background */
+    color: white;
+}
+
+/* Header & Navbar Styles */
+header {
+    background-color: #252525;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logo span {
+    color: #00d4ff; /* A nice electric blue */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00d4ff;
+}
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hides links by default on mobile */
         flex-direction: column;
         width: 100%;
         position: absolute;
@@ -280,7 +346,7 @@ html {
     padding: 25px;
 }
 
-.projAect-info h3 {
+.project-info h3 {
     margin-bottom: 10px;
     color: #00d4ff;
 }
@@ -402,50 +468,329 @@ header {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text
-/* --- Skills Section Styles --- */
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.05), transparent);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.hero-content h4 {
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.main-btn, .secondary-btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.main-btn {
+    background: var(--accent-color);
+    color: #000;
+}
+
+.secondary-btn {
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.main-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+/* --- Tech Stack (Skills) --- */
+.skills {
+    background: var(--surface-color);
+}
+
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .skill-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
 }
 
 .skill-card:hover {
     transform: translateY(-10px);
-    border-color: #00d4ff;
+    border-color: var(--accent-color);
+    background: rgba(0, 212, 255, 0.02);
 }
 
 .skill-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
     margin-bottom: 20px;
 }
-.blob-shape {
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(45deg, #00d4ff, #0081ff);
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* Creates the organic shape */
-    animation: blobMorph 8s linear infinite alternate;
+
+/* --- Project Grid --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
 }
 
-@keyframes blobMorph {
-    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-    100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+.project-card {
+    background: var(--surface-color);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
 }
 
-@media screen and (max-width: 768px) {
-    .blob-shape {
-        width: 250px;
-        height: 250px;
-        margin: 20px auto;
+.project-img {
+    height: 220px;
+    background: linear-gradient(45deg, #1e1e1e, #252525);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--accent-color);
+}
+
+.project-info {
+    padding: 30px;
+}
+
+.project-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.project-links a {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.project-links a:hover {
+    color: var(--accent-color);
+}
+
+.project-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+/* --- Mobile Menu & Responsiveness --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Add JS later to toggle this */
     }
+    
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+/* --- Contact Section Styles --- */
+.contact {
+    background: #121212;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-info h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #a0a0a0;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    color: #00d4ff;
+    font-size: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #00d4ff;
+    transform: translateY(-5px);
+}
+
+/* Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Floating WhatsApp --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transition: 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+    background-color: #20ba5a;
+}
+
+/* --- Mobile Menu Active State --- */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        background: #1a1a1a;
+        width: 100%;
+        padding: 40px;
+        transition: 0.5s;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+}
+
+/* --- Scroll Animations --- */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Cursor/Selection Color */
+::selection {
+    background: #00d4ff;
+    color: #000;
+}
+/* --- Scroll Reveal Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
